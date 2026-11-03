@@ -1,0 +1,4 @@
+# Exact locations and reproduction steps for open threats. Never publish until each one is fixed.
+private/
+
+.DS_Store
