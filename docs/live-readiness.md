@@ -18,7 +18,7 @@ All 13 gates are open as of 3 November 2026.
 | G-10 | **Chain is the source of truth.** The wallet is reconciled against the ledger at every start, a position closes only after on-chain confirmation, and held coins are never evicted. | T-12, T-13, T-14 |
 | G-11 | **Protected pipeline.** CI runs dependency, secret and code scanning and blocks merges on failure. `main` is protected, Dependabot is on, and live mode runs from a reviewed tag. | T-21, T-22 |
 | G-12 | **Assistant containment.** Secret files are blocked at tool-permission level, ledger text is treated as data, and commands need human approval. | T-24 |
-| G-13 | **Private operations.** Live tuning and operational notes stay out of the public repo. | T-02, T-23 |
+| G-13 | **Private operations.** Live tuning and operational notes stay out of the public repo. The notes are done, and live tuning is still open. | T-02, T-23 |
 
 ## Should fix, not blocking
 

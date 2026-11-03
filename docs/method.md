@@ -2,7 +2,7 @@
 
 ## Scope
 
-**In scope:** The Watchman v0.4.0 at commit [`c4e5cdb`](https://github.com/Iamendlesss/the-watchman/tree/c4e5cdba5e0223a116a5d65bdb90bfb636af467b), including its source, tracked config, dependencies, repository settings, design spec and project notes. The planned live executor is covered at design level.
+**In scope:** The Watchman v0.4.0 at commit [`284b4f3`](https://github.com/Iamendlesss/the-watchman/tree/284b4f38ee10c6f90806b292a5811e50129d811d), including its source, tracked config, dependencies, repository settings, design spec and project notes. The planned live executor is covered at design level.
 
 **Out of scope:** The security of Solana, pump.fun, Helius, RugCheck and Discord themselves, which are treated as outside parties that can fail or misbehave. Whether the trading strategy is profitable is also out of scope.
 

@@ -1,12 +1,12 @@
 # STRIDE Analysis
 
-All threats to [The Watchman](https://github.com/Iamendlesss/the-watchman) v0.4.0 at commit `c4e5cdb`, by component.
+All threats to [The Watchman](https://github.com/Iamendlesss/the-watchman) v0.4.0 at commit `284b4f3`, by component.
 
 **STRIDE:** Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.
 
 **Ratings:** likelihood × impact, before any planned control is built. See the [method](method.md) for the scale.
 
-**Evidence:** *Tested* means reproduced offline with crafted input or confirmed by a tool. *Code* means confirmed by reading the source. *Notes* means recorded in the project's own documents. *Design* means reasoned from the planned architecture.
+**Evidence:** *Tested* means reproduced offline with crafted input or confirmed by a tool. *Code* means confirmed by reading the source. *Notes* means recorded in the project's private operating notes. *Design* means reasoned from the planned architecture.
 
 ## 1. Launch stream and tracker
 
@@ -64,7 +64,7 @@ All threats to [The Watchman](https://github.com/Iamendlesss/the-watchman) v0.4.
 |---|---|---|---|---|---|---|
 | T-21 | **Malicious or vulnerable packages.** There are 120 packages, 3 of them with install scripts, and development tools run in the same folder as `.env`. The audit on the review date reported 5 vulnerable packages: 3 high and 2 moderate. One is a runtime package whose affected feature the bot does not use on network input. The other 4 are development tools. | T, E | Medium (1×4) | Critical (2×4) | Tested | CI with dependency, secret and code scanning that blocks merges, `npm ci` only, Dependabot |
 | T-22 | **Source integrity.** `main` has no branch protection or required checks, there is no CI, and Dependabot is off. A stolen GitHub token could change what runs after the next pull. | T | Low (1×2) | Medium (1×4) | Tested | Branch protection with required checks, signed commits, run live mode from a reviewed tag |
-| T-23 | **Operational details in public.** Project notes state which secrets are set, where the bot runs, and its known issues. | I | Low (2×1) | Medium (2×2) | Code | Move operational notes somewhere private, and note that git history keeps old copies |
+| T-23 | **Operational details in public.** Project notes stated which secrets are set, where the bot runs, and its known issues. | I | Low (2×1) | Medium (2×2) | Code | Fixed on 3 November 2026 for the notes, which were removed from the repo and its history. Live tuning is covered by T-02 |
 
 ## 8. AI coding assistant
 

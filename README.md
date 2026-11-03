@@ -4,7 +4,7 @@ A STRIDE threat model of [The Watchman](https://github.com/Iamendlesss/the-watch
 
 | | |
 |---|---|
-| **System reviewed** | The Watchman v0.4.0, commit [`c4e5cdb`](https://github.com/Iamendlesss/the-watchman/tree/c4e5cdba5e0223a116a5d65bdb90bfb636af467b) |
+| **System reviewed** | The Watchman v0.4.0, commit [`284b4f3`](https://github.com/Iamendlesss/the-watchman/tree/284b4f38ee10c6f90806b292a5811e50129d811d) |
 | **Method** | STRIDE per component, rated for today (paper mode) and for a future live mode |
 | **Evidence** | Source review, secret scan of git history, dependency audit, offline tests of gate logic with crafted input |
 | **Date** | 3 November 2026 |
@@ -139,20 +139,20 @@ Each link points to the reviewed commit.
 
 | Control | Why it matters | Evidence |
 |---|---|---|
-| Live mode refused | A config change alone cannot start real trading | [`config.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/config.ts#L155-L163) |
-| Executor has no network or key access | Simulated fills cannot spend funds | [`executor.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/executor.ts#L33-L39) |
-| No signing library installed | There is no code path that can sign | [`package.json`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/package.json) |
-| One path to a new position | Risk rules cannot be skipped | [`engine.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/engine.ts#L68-L72) |
-| Drawdown floor checked on every tick | Halts arrive as soon as equity crosses the floor | [`paper.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/paper.ts#L121-L135) |
-| Mint check fails closed | An unreadable account blocks the coin | [`mintCheck.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/safety/mintCheck.ts#L65-L69) |
-| Events accepted only from the pump.fun program | Data logged by other programs in the same transaction is ignored | [`events.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/scanner/events.ts#L100-L117) |
-| Length limits on decoded data | Malformed input is rejected instead of forcing large allocations | [`borsh.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/scanner/borsh.ts#L91-L95) |
-| Discord host allowlist | A typo cannot send alerts or the webhook path elsewhere | [`discord.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/alerts/discord.ts#L6-L17) |
-| Coin names cleaned, mentions off | Names cannot ping people or add links in Discord | [`discord.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/alerts/discord.ts#L19-L27) |
-| Parameterized SQL | No SQL built from coin data, confirmed by search | [`ledger.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/ledger.ts#L157-L168) |
-| Secret values never printed | Keys stay out of logs and error text | [`cli.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/cli.ts#L29), [`ws.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/scanner/ws.ts#L6) |
-| API usage budget | A data flood cannot run up usage without limit | [`scan.ts`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/src/scan.ts#L290-L299) |
-| Pinned dependencies | Direct versions are exact, and all 120 locked packages resolve to the npm registry | [`package-lock.json`](https://github.com/Iamendlesss/the-watchman/blob/c4e5cdba5e0223a116a5d65bdb90bfb636af467b/package-lock.json) |
+| Live mode refused | A config change alone cannot start real trading | [`config.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/config.ts#L155-L163) |
+| Executor has no network or key access | Simulated fills cannot spend funds | [`executor.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/executor.ts#L33-L39) |
+| No signing library installed | There is no code path that can sign | [`package.json`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/package.json) |
+| One path to a new position | Risk rules cannot be skipped | [`engine.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/engine.ts#L68-L72) |
+| Drawdown floor checked on every tick | Halts arrive as soon as equity crosses the floor | [`paper.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/paper.ts#L121-L135) |
+| Mint check fails closed | An unreadable account blocks the coin | [`mintCheck.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/safety/mintCheck.ts#L65-L69) |
+| Events accepted only from the pump.fun program | Data logged by other programs in the same transaction is ignored | [`events.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/scanner/events.ts#L100-L117) |
+| Length limits on decoded data | Malformed input is rejected instead of forcing large allocations | [`borsh.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/scanner/borsh.ts#L91-L95) |
+| Discord host allowlist | A typo cannot send alerts or the webhook path elsewhere | [`discord.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/alerts/discord.ts#L6-L17) |
+| Coin names cleaned, mentions off | Names cannot ping people or add links in Discord | [`discord.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/alerts/discord.ts#L19-L27) |
+| Parameterized SQL | No SQL built from coin data, confirmed by search | [`ledger.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/ledger.ts#L157-L168) |
+| Secret values never printed | Keys stay out of logs and error text | [`cli.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/cli.ts#L29), [`ws.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/scanner/ws.ts#L6) |
+| API usage budget | A data flood cannot run up usage without limit | [`scan.ts`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/src/scan.ts#L290-L299) |
+| Pinned dependencies | Direct versions are exact, and all 120 locked packages resolve to the npm registry | [`package-lock.json`](https://github.com/Iamendlesss/the-watchman/blob/284b4f38ee10c6f90806b292a5811e50129d811d/package-lock.json) |
 | Secret protection on the repo | GitHub secret scanning and push protection are on, and a pattern scan of git history found no real secrets | GitHub API and history scan on the review date |
 
 ## Before the bot could go live
