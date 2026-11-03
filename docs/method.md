@@ -56,7 +56,7 @@ All checks ran on 3 November 2026.
 | Dependency audit | `npm audit` against the lockfile: 5 vulnerable packages, 3 high and 2 moderate |
 | Lockfile review | 120 packages, all from `registry.npmjs.org`, 3 with install scripts |
 | Dangerous code search | No `eval` or `child_process`. The only SQL interpolation adds a fixed clause, so no query contains outside data |
-| Repository settings | Secret scanning and push protection on, Dependabot off, `main` not protected, no CI workflows |
+| Repository settings | At review: secret scanning and push protection on, Dependabot off, `main` not protected, no CI workflows. The [security pipeline](https://github.com/Iamendlesss/the-watchman/blob/main/docs/security-pipeline.md) has since changed the last three |
 
 ## Limits of this review
 
@@ -64,6 +64,6 @@ All checks ran on 3 November 2026.
 - The operator's `.env` file and local ledger were not read. Their state comes from the project notes.
 - The early-trade recovery test used a stub that follows the documented RPC behaviour, not a live node.
 - The secret scan was pattern based, so it could miss a secret in an unusual format.
-- The project's 174 test cases were counted but not run.
+- The project's 174 test cases were counted but not run during this review. They have since passed in CI.
 - Audit results change over time, so they apply to the review date only.
 - Ratings are one reviewer's judgement.

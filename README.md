@@ -15,7 +15,7 @@ A STRIDE threat model of [The Watchman](https://github.com/Iamendlesss/the-watch
 1. **Today's exposure is small, and that is by design.** Live mode is refused in code, no signing code or library exists, and the bot trades on paper. The realistic worst case today is stolen API keys or a compromised development machine, not lost funds.
 2. **The gate measures wallets, not people.** A launcher running many wallets can look like a healthy crowd. This is the largest risk to the strategy and no threshold change fixes it.
 3. **Some checks fail open.** One safety stage can pass a coin with no danger recorded when the outside service is unavailable or changes its response format. Live mode needs these checks to fail closed.
-4. **The development environment is the shortest route to the secrets.** Package code and an AI coding assistant both run next to the `.env` file, with no CI or branch protection in front of them.
+4. **The development environment is the shortest route to the secrets.** Package code and an AI coding assistant both run next to the `.env` file. CI and branch protection now guard what reaches `main`, but they cannot stop a tool on the operator's own machine.
 5. **Going live has a clear bar.** [13 security gates](docs/live-readiness.md) must pass first, and all 8 Critical threats map to one of them.
 
 ## System and trust boundaries
@@ -108,7 +108,7 @@ The 8 threats rated Critical for live mode. Ratings show likelihood × impact be
 | T-19 | Trading key shared with every package | I, E | Low (1×1) | Critical (2×4) | Separate signer process |
 | T-25 | Hostile instructions from the swap API | T, E | Not built | Critical (2×4) | Decode and verify every transaction before signing |
 
-**Fix first, while it is cheap:** a security pipeline (T-21, T-22), fail-closed checks (T-03, T-04), and assistant containment (T-24). None of these need live mode to exist.
+**Fix first, while it is cheap:** a security pipeline (T-21, T-22), fail-closed checks (T-03, T-04), and assistant containment (T-24). None of these need live mode to exist. The [security pipeline](https://github.com/Iamendlesss/the-watchman/blob/main/docs/security-pipeline.md) is now built.
 
 ## Attack walk-through: the crafted launch
 

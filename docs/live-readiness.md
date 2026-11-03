@@ -2,7 +2,7 @@
 
 The Watchman is a paper bot today, and live mode is refused in code. These gates define what must be true before that refusal could be removed. Every Critical threat in the [STRIDE analysis](stride-analysis.md) maps to at least one gate.
 
-All 13 gates are open as of 3 November 2026.
+As of 3 November 2026, G-11 is built except for running live mode from a reviewed tag, which can only happen once live mode exists. The other 12 gates are open.
 
 | Gate | Requirement | Threats closed |
 |---|---|---|
